@@ -37,7 +37,7 @@ public class ClientBehaviour : MonoBehaviour
     private void Start()
     {
         NumeroPedido = Random.Range(MinimumRange, MaximumRange);
-        _dialogueTXT.text = "Quiero un n�mero <b>" + NumeroPedido + "</b>, por favor";
+        _dialogueTXT.text = "Quiero un número <b>" + NumeroPedido + "</b>, por favor";
         _temporizadorTXT = GameObject.FindGameObjectWithTag("temporizador").GetComponent<TMP_Text>();
 
         if (_doRandomize)
