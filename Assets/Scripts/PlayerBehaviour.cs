@@ -154,7 +154,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         _changingBar.transform.localScale = new Vector3(_barTimer, 1f, 1f);
         _barTimer = Mathf.Clamp(_barTimer, 0f, 1f);
-        print(_barTimer);
 
         //Timers
         if (_lerpLeft)

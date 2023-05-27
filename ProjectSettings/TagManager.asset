@@ -7,6 +7,8 @@ TagManager:
   - PanBajo
   - PanAlto
   - Carne
+  - temporizador
+  - FoodNumber1
   layers:
   - Default
   - TransparentFX
