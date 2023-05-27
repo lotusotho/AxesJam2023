@@ -9,6 +9,7 @@ TagManager:
   - Carne
   - temporizador
   - FoodNumber1
+  - cliente
   layers:
   - Default
   - TransparentFX

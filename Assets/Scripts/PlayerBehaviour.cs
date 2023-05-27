@@ -167,7 +167,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (_timerCameraChanger > 0f)
             {
-                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, -80f, Time.deltaTime * _speed), 0f);
+                gameObject.transform.localEulerAngles = new Vector3(17.069f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, -80f, Time.deltaTime * _speed), 0f);
             }
         }
 
@@ -182,7 +182,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (_timerCameraChanger > 0f)
             {
-                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 80f, Time.deltaTime * _speed), 0f);
+                gameObject.transform.localEulerAngles = new Vector3(17.069f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 80f, Time.deltaTime * _speed), 0f);
             }
         }
 
@@ -197,7 +197,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (_timerCameraChanger > 0f)
             {
-                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 0f, Time.deltaTime * _speed), 0f);
+                gameObject.transform.localEulerAngles = new Vector3(17.069f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 0f, Time.deltaTime * _speed), 0f);
             }
         }
     }

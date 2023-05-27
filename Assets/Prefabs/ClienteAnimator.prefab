@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 8157628184588755349}
   m_Layer: 0
   m_Name: ClienteAnimator
-  m_TagString: Untagged
+  m_TagString: cliente
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,3 +493,4 @@ MonoBehaviour:
   _maxTimerRandomizer: 0
   _minTimerRandomizer: 0
   _doRandomize: 0
+  gameManager: {fileID: 0}

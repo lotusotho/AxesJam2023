@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public RecipeDatabase RecipeDatabase;
 
     public List<GameObject> completeRecipes;
+
+    [SerializeField]
+    private GameObject _nuevocliente;
     
     
 
@@ -44,7 +47,13 @@ public class GameManager : MonoBehaviour
        cookingPlate.SetFinishedRecipe(completeRecipes[currentClient.NumeroPedido+1]);
         
     }
-    
-    
-    
+
+    private void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("cliente") == null)
+        {
+            Instantiate(_nuevocliente);
+        }
+    }
+
 }

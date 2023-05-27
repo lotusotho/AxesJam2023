@@ -13,6 +13,9 @@ public class HandBehaviour : MonoBehaviour
     public float minY; 
     // Límite superior de la pantalla
     public float maxY;
+    public float minZ;
+    public float maxZ;
+
     
     void Update()
     {
@@ -27,7 +30,20 @@ public class HandBehaviour : MonoBehaviour
         targetPosition.x = Mathf.Lerp(minX, maxX, normalizedMousePosition_x);
         targetPosition.y = Mathf.Lerp(minY, maxY, normalizedMousePosition_y);
         targetPosition.z = transform.position.z;
-        
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) 
+        {
+            targetPosition.z -= Input.GetAxis("Mouse ScrollWheel");
+            print(targetPosition.z);
+            //targetPosition.z = Mathf.Clamp(targetPosition.z, -5f, -4f);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            targetPosition.z -= Input.GetAxis("Mouse ScrollWheel");
+            print(targetPosition.z);
+            //targetPosition.z = Mathf.Clamp(targetPosition.z, -4f, -5f);
+        }
+
         // Set the arm's position
         transform.position = targetPosition;
     }
