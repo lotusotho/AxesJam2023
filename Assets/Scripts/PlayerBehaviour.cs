@@ -6,26 +6,25 @@ using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    private Vector3 ToEulers;
     [SerializeField]
-    private float timerCameraChanger, timerToolChanger, barTimer;
+    private float _timerCameraChanger, _timerToolChanger, _barTimer;
     [SerializeField]
-    private float setTimer, setToolChanger;
+    private float _setTimer, _setToolChanger;
     [SerializeField]
     [Range(0f, 2f)]
-    private float speed;
-    private bool LerpLeft, LerpRight, LerpCenter;
+    private float _speed;
+    private bool _lerpLeft, _lerpRight, _lerpCenter;
     [SerializeField]
-    private GameObject[] Tools;
+    private GameObject[] _tools;
     [SerializeField]
-    private int toolsChanger;
+    private int _toolsChanger;
     //UI
     [SerializeField]
-    private Image Selector;
+    private Image _selector;
     [SerializeField]
-    private RectTransform[] UIPositions;
+    private RectTransform[] _UIPositions;
     [SerializeField]
-    private Transform ChangingBar;
+    private Transform _changingBar;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +37,6 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         //Inputs para lerping
-        ToEulers = gameObject.transform.rotation.eulerAngles;
         if (Input.GetKeyDown(KeyCode.A))
         {
             LerpToLeft();
@@ -58,134 +56,134 @@ public class PlayerBehaviour : MonoBehaviour
         //Funciones de lerping
         void LerpToLeft()
         {
-            LerpLeft = true;
+            _lerpLeft = true;
         }
 
         void LerpToRight()
         {
-            LerpRight = true;
+            _lerpRight = true;
         }
 
         void LerpToCenter()
         {
-            LerpCenter = true;
+            _lerpCenter = true;
         }
 
         //Cambiar de herramienta
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Selector.rectTransform.position = UIPositions[0].transform.position;
-            toolsChanger = 1;
+            _selector.rectTransform.position = _UIPositions[0].transform.position;
+            _toolsChanger = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Selector.rectTransform.position = UIPositions[1].transform.position;
-            toolsChanger = 2;
+            _selector.rectTransform.position = _UIPositions[1].transform.position;
+            _toolsChanger = 2;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Selector.rectTransform.position = UIPositions[2].transform.position;
-            toolsChanger = 3;
+            _selector.rectTransform.position = _UIPositions[2].transform.position;
+            _toolsChanger = 3;
         }
 
         //Sacar nueva herramienta
-        if (timerToolChanger > 0f && Input.GetButtonUp("Fire2"))
+        if (_timerToolChanger > 0f && Input.GetButtonUp("Fire2"))
         {
-            timerToolChanger = setToolChanger;
+            _timerToolChanger = _setToolChanger;
         }
 
-        if (timerToolChanger > 0f && Input.GetButton("Fire2"))
+        if (_timerToolChanger > 0f && Input.GetButton("Fire2"))
         {
-            timerToolChanger -= Time.deltaTime;
+            _timerToolChanger -= Time.deltaTime;
         }
 
-        if (timerToolChanger <= 0f && toolsChanger == 1 && Input.GetButton("Fire2"))
+        if (_timerToolChanger <= 0f && _toolsChanger == 1 && Input.GetButton("Fire2"))
         {
-            for(int i = 0; i < Tools.Length; i++)
+            for(int i = 0; i < _tools.Length; i++)
             {
-                Tools[i].SetActive(false);
+                _tools[i].SetActive(false);
             }
-            Tools[0].SetActive(true);
-            timerToolChanger = setToolChanger;
+            _tools[0].SetActive(true);
+            _timerToolChanger = _setToolChanger;
         }
 
-        if (timerToolChanger <= 0f && toolsChanger == 2 && Input.GetButton("Fire2"))
+        if (_timerToolChanger <= 0f && _toolsChanger == 2 && Input.GetButton("Fire2"))
         {
-            for (int i = 0; i < Tools.Length; i++)
+            for (int i = 0; i < _tools.Length; i++)
             {
-                Tools[i].SetActive(false);
+                _tools[i].SetActive(false);
             }
-            Tools[1].SetActive(true);
-            timerToolChanger = setToolChanger;
+            _tools[1].SetActive(true);
+            _timerToolChanger = _setToolChanger;
         }
 
         //Barra de cambiar de herramientas Update
 
         if (Input.GetButton("Fire2"))
         {
-            barTimer += Time.deltaTime;
+            _barTimer += Time.deltaTime;
         }
-        else if (barTimer != 0f)
+        else if (_barTimer != 0f)
         {
-            barTimer -= Time.deltaTime * 2;
-            timerToolChanger = setToolChanger;
+            _barTimer -= Time.deltaTime * 2;
+            _timerToolChanger = _setToolChanger;
         }
 
-        if (barTimer >= .8f)
+        if (_barTimer >= .8f)
         {
-            ChangingBar.transform.eulerAngles = new Vector3(0f, 0f, Random.Range(0f, 5f));
+            _changingBar.transform.eulerAngles = new Vector3(0f, 0f, Random.Range(0f, 5f));
         }
-        else ChangingBar.transform.eulerAngles = Vector3.zero;
+        else _changingBar.transform.eulerAngles = Vector3.zero;
 
-        ChangingBar.transform.localScale = new Vector3(barTimer, 1f, 1f);
-        barTimer = Mathf.Clamp(barTimer, 0f, 1f);
-        print(barTimer);
+        _changingBar.transform.localScale = new Vector3(_barTimer, 1f, 1f);
+        _barTimer = Mathf.Clamp(_barTimer, 0f, 1f);
+        print(_barTimer);
 
         //Timers
-        if (LerpLeft)
+        if (_lerpLeft)
         {
-            timerCameraChanger -= Time.deltaTime;
-            if (timerCameraChanger <= 0f)
+            _timerCameraChanger -= Time.deltaTime;
+            if (_timerCameraChanger <= 0f)
             {
-                timerCameraChanger = setTimer;
-                LerpLeft = false;
+                _timerCameraChanger = _setTimer;
+                _lerpLeft = false;
             }
 
-            if (timerCameraChanger > 0f)
+            if (_timerCameraChanger > 0f)
             {
-                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, -80f, Time.deltaTime * speed), 0f);
+                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, -80f, Time.deltaTime * _speed), 0f);
             }
         }
 
-        if (LerpRight)
+        if (_lerpRight)
         {
-            timerCameraChanger -= Time.deltaTime;
-            if (timerCameraChanger <= 0f)
+            _timerCameraChanger -= Time.deltaTime;
+            if (_timerCameraChanger <= 0f)
             {
-                timerCameraChanger = setTimer;
-                LerpRight = false;
+                _timerCameraChanger = _setTimer;
+                _lerpRight = false;
             }
 
-            if (timerCameraChanger > 0f)
+            if (_timerCameraChanger > 0f)
             {
-                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 80f, Time.deltaTime * speed), 0f);
+                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 80f, Time.deltaTime * _speed), 0f);
             }
         }
 
-        if (LerpCenter)
+        if (_lerpCenter)
         {
-            timerCameraChanger -= Time.deltaTime;
-            if (timerCameraChanger <= 0f)
+            _timerCameraChanger -= Time.deltaTime;
+            if (_timerCameraChanger <= 0f)
             {
-                timerCameraChanger = setTimer;
-                LerpCenter = false;
+                _timerCameraChanger = _setTimer;
+                _lerpCenter = false;
             }
 
-            if (timerCameraChanger > 0f)
+            if (_timerCameraChanger > 0f)
             {
-                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 0f, Time.deltaTime * speed), 0f);
+                gameObject.transform.localEulerAngles = new Vector3(0f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 0f, Time.deltaTime * _speed), 0f);
             }
         }
     }
