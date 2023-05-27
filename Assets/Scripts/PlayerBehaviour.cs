@@ -29,7 +29,12 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        for (int i = 0; i < _tools.Length; i++)
+        {
+            _tools[i].SetActive(false);
+        }
+        _tools[0].SetActive(true);
+        _timerToolChanger = _setToolChanger;
     }
 
     // Update is called once per frame
@@ -116,6 +121,16 @@ public class PlayerBehaviour : MonoBehaviour
                 _tools[i].SetActive(false);
             }
             _tools[1].SetActive(true);
+            _timerToolChanger = _setToolChanger;
+        }
+
+        if (_timerToolChanger <= 0f && _toolsChanger == 3 && Input.GetButton("Fire2"))
+        {
+            for (int i = 0; i < _tools.Length; i++)
+            {
+                _tools[i].SetActive(false);
+            }
+            _tools[2].SetActive(true);
             _timerToolChanger = _setToolChanger;
         }
 
