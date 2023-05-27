@@ -10,21 +10,22 @@ public class CookingPlate : MonoBehaviour
     private List<string> currentIngredients;
     private List<GameObject> currentIngredientsObj;
 
-    private GameObject finishedRecipe;
-
-    public FinishedPlate finishedPlate;
+    public GameObject finishedRecipe;
 
     public Transform finishedSpawnLocation;
 
-    private void Awake()
-    {
-        currentIngredients = new List<string>();
-        requiredIngredients = new List<string>();
-    }
+    private RecipeDatabase database;
+
+    public BoxCollider triggerIngredients;
+    
 
     private void Start()
     {
+        database = new RecipeDatabase();
+        currentIngredients = new List<string>();
+        requiredIngredients = new List<string>();
         currentIngredientsObj = new List<GameObject>();
+        requiredIngredients = database.recipes["Hamburguesa"];
     }
 
     private void Update()
@@ -33,27 +34,9 @@ public class CookingPlate : MonoBehaviour
         
     }
 
-    public void SetRequiredIngredients(List<String> required)
-    {
-        if (required != null)
-        {
-            foreach (string food in required)
-            {
-                requiredIngredients.Add(food);
-            }
-        }
-       
-    }
-
-    public void SetFinishedRecipe(GameObject finished)
-    {
-        finishedRecipe = finished;
-        finishedPlate.SetRequiredRecipe(finished);
-    }
-
     private void CheckIfRecipeIsComplete()
     {
-        if (requiredIngredients != null && currentIngredients != null && requiredIngredients.Count > 0)
+        if (requiredIngredients != null && currentIngredients != null)
         {
             bool sameValues = requiredIngredients.OrderBy(x => x).SequenceEqual(currentIngredients.OrderBy(x => x));
 

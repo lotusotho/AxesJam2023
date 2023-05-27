@@ -9,8 +9,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CookingPlate.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FinishedPlate.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RecipeDatabase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -92,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685123786735</updated>
       <workItem from="1685123789974" duration="9356000" />
-      <workItem from="1685171875825" duration="26950000" />
+      <workItem from="1685171875825" duration="21322000" />
     </task>
     <servers />
   </component>
