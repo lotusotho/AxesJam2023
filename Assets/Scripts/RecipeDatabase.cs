@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class RecipeDatabase
 {
-    public Dictionary<string, List<string>> recipes = new Dictionary<string, List<string>>
+    public Dictionary<int, List<string>> recipes = new Dictionary<int, List<string>>
     {
-        { "Hamburguesa", new List<string>() { "PanBajo", "PanAlto", "Carne" } },
-        { "Hamburguesa con tomate", new List<string>() {  "PanBajo", "PanAlto", "Carne", "Tomate" }}
+        { 1, new List<string>() { "PanBajo", "PanAlto", "Carne" } },
+        { 2, new List<string>() {  "PanBajo", "PanAlto", "Carne", "Tomate" }}
     };
 }

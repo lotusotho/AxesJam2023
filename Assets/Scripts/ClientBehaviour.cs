@@ -12,7 +12,7 @@ public class ClientBehaviour : MonoBehaviour
 
     public int NumeroPedido;
 
-    [Range(1, 10)]
+    [Range(1, 2)]
     private int MaximumRange;
 
     [SerializeField]
@@ -31,11 +31,13 @@ public class ClientBehaviour : MonoBehaviour
 
     private string _seconds;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     private void Start()
     {
         NumeroPedido = Random.Range(1, MaximumRange);
-        _dialogueTXT.text = "Quiero un número <b>" + NumeroPedido + "</b>, por favor";
+        _dialogueTXT.text = "Quiero un nï¿½mero <b>" + NumeroPedido + "</b>, por favor";
         _temporizadorTXT = GameObject.FindGameObjectWithTag("temporizador").GetComponent<TMP_Text>();
 
         if (_doRandomize)

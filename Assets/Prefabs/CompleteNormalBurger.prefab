@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 4119828719725499638}
   m_Layer: 9
   m_Name: CompleteNormalBurger
-  m_TagString: Untagged
+  m_TagString: FoodNumber1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
