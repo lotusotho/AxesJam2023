@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - temporizador
+  - PanBajo
+  - PanAlto
+  - Carne
   layers:
   - Default
   - TransparentFX
@@ -13,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Grabbable
-  - 
-  - 
-  - 
+  - Hand
+  - Plate
+  - GrababbleFinished
   - 
   - 
   - 

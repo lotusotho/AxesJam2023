@@ -5,25 +5,31 @@ using UnityEngine;
 
 public class HandBehaviour : MonoBehaviour
 {
-
-    private Vector3 pos;
-    public float speed = 3f;
+    // Límite izquierdo de la pantalla
+    public float minX;
+    // Límite derecho de la pantalla
+    public float maxX; 
+    // Límite inferior de la pantalla
+    public float minY; 
+    // Límite superior de la pantalla
+    public float maxY;
     
-    
-    // Update is called once per frame
     void Update()
     {
-
-        pos = Input.mousePosition;
-        pos.z = speed;
-        //Vector3 cameraPos = Camera.main.ScreenToWorldPoint(pos);
         
-        float x = Input.GetAxis("Mouse X");
-        float y = Input.GetAxis("Mouse Y");
+        Vector3 cursorPosition = Input.mousePosition;
+        //Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(cursorPosition.x, cursorPosition.y, 10f));
+        Vector3 targetPosition = Vector3.zero;
+        
+        float normalizedMousePosition_y = cursorPosition.y/Screen.height;
+        float normalizedMousePosition_x = cursorPosition.x / Screen.width;
 
-       transform.Translate(new Vector3(x, y ,0));
-
-
+        targetPosition.x = Mathf.Lerp(minX, maxX, normalizedMousePosition_x);
+        targetPosition.y = Mathf.Lerp(minY, maxY, normalizedMousePosition_y);
+        targetPosition.z = transform.position.z;
+        
+        // Set the arm's position
+        transform.position = targetPosition;
     }
-    
+
 }

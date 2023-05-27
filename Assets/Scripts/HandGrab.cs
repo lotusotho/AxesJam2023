@@ -9,14 +9,27 @@ public class HandGrab : MonoBehaviour
 
     private GameObject lastSelectedItem;
 
+    private float timerDropFood;
+
+    private float totalTimeDropFood = 0.5f;
+
+    private bool isDropping = false;
+
+    private BoxCollider collider;
+    
     public Transform grabPosition;
 
     public LayerMask grabLayer;
 
+    private void Start()
+    {
+        collider = GetComponent<BoxCollider>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Grabbable"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Grabbable") || collision.gameObject.layer == LayerMask.NameToLayer("GrababbleFinished"))
         {
             lastSelectedItem = collision.gameObject;
         }
@@ -24,7 +37,7 @@ public class HandGrab : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Grabbable"))
+        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Grabbable") || other.gameObject.layer == LayerMask.NameToLayer("GrababbleFinished"))
         {
             lastSelectedItem = null;
         }
@@ -32,6 +45,22 @@ public class HandGrab : MonoBehaviour
 
     private void Update()
     {
+
+        if (isDropping)
+        {
+            if (timerDropFood < totalTimeDropFood)
+            {
+                timerDropFood += Time.deltaTime;
+            }
+            else
+            {
+                collider.isTrigger = false;
+                timerDropFood = 0f;
+                isDropping = false;
+                
+            }
+        }
+        
         if (lastSelectedItem != null)
         {
             CheckGrabOrDropItem();
@@ -42,6 +71,7 @@ public class HandGrab : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            //Cogemos el objeto
             if (currentGrabbedItem == null)
             {
                 lastSelectedItem.transform.position = grabPosition.position;
@@ -49,13 +79,15 @@ public class HandGrab : MonoBehaviour
                 
                 currentGrabbedItem = lastSelectedItem;
             }
+            //Dropeamos el objeto
             else
             {
+                collider.isTrigger = true;
+                isDropping = true;
                 lastSelectedItem.transform.parent = null;
                 currentGrabbedItem = null;
                 
             }
-          
             
         }
     }
