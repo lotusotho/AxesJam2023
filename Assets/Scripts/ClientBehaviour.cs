@@ -13,7 +13,7 @@ public class ClientBehaviour : MonoBehaviour
     public int NumeroPedido;
 
     private int MinimumRange = 1;
-    private int MaximumRange = 7;
+    private int MaximumRange = 5;
 
     [SerializeField]
     private float _timer;

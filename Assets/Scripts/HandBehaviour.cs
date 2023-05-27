@@ -34,13 +34,11 @@ public class HandBehaviour : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) 
         {
             targetPosition.z -= Input.GetAxis("Mouse ScrollWheel");
-            print(targetPosition.z);
             //targetPosition.z = Mathf.Clamp(targetPosition.z, -5f, -4f);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             targetPosition.z -= Input.GetAxis("Mouse ScrollWheel");
-            print(targetPosition.z);
             //targetPosition.z = Mathf.Clamp(targetPosition.z, -4f, -5f);
         }
 
