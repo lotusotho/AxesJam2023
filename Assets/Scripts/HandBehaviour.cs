@@ -5,24 +5,30 @@ using UnityEngine;
 
 public class HandBehaviour : MonoBehaviour
 {
-    public float minX; // Límite izquierdo de la pantalla
-    public float maxX; // Límite derecho de la pantalla
-    public float minY; // Límite inferior de la pantalla
-    public float maxY; // Límite superior de la pantalla
-
+    // Límite izquierdo de la pantalla
+    public float minX;
+    // Límite derecho de la pantalla
+    public float maxX; 
+    // Límite inferior de la pantalla
+    public float minY; 
+    // Límite superior de la pantalla
+    public float maxY;
+    
     void Update()
     {
+        
         Vector3 cursorPosition = Input.mousePosition;
+        //Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(cursorPosition.x, cursorPosition.y, 10f));
+        Vector3 targetPosition = Vector3.zero;
         
-        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(cursorPosition.x, cursorPosition.y, 10f));
-        
+        float normalizedMousePosition_y = cursorPosition.y/Screen.height;
+        float normalizedMousePosition_x = cursorPosition.x / Screen.width;
+
+        targetPosition.x = Mathf.Lerp(minX, maxX, normalizedMousePosition_x);
+        targetPosition.y = Mathf.Lerp(minY, maxY, normalizedMousePosition_y);
         targetPosition.z = transform.position.z;
-
-        // Limitar la posición del objeto dentro de los límites de la pantalla utilizando Mathf.Clamp
-        targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, minY, maxY);
-
-        // Asignar la posición del objeto después de aplicar los límites
+        
+        // Set the arm's position
         transform.position = targetPosition;
     }
 
