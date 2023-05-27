@@ -25,8 +25,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4120653895510983584}
-  m_LocalRotation: {x: 0.7071067, y: -0.000000029802322, z: 0.000000009837095, w: 0.70710695}
-  m_LocalPosition: {x: -0.0039999615, y: 0.23499997, z: 0}
+  m_LocalRotation: {x: 0.70710665, y: 0, z: -0, w: 0.7071069}
+  m_LocalPosition: {x: -0.004, y: 0.235, z: 0}
   m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -108,8 +108,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7044033779090936852}
-  m_LocalRotation: {x: -0.00000008149072, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21000004, z: 0}
+  m_LocalRotation: {x: -0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.21, z: -0}
   m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2e9f0d555009faa42bcd73cd3ee27ee8, type: 2}
+  - {fileID: 2100000, guid: 914fda0294450c641901c41a21354309, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 8157628184588755351}
   - component: {fileID: 8157628184588755349}
   m_Layer: 0
-  m_Name: ClienteAnimator
+  m_Name: ClienteAnimator2
   m_TagString: cliente
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
