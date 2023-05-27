@@ -12,8 +12,8 @@ public class ClientBehaviour : MonoBehaviour
 
     public int NumeroPedido;
 
-    [Range(1, 2)]
-    private int MaximumRange;
+    private int MinimumRange = 1;
+    private int MaximumRange = 7;
 
     [SerializeField]
     private float _timer;
@@ -31,12 +31,12 @@ public class ClientBehaviour : MonoBehaviour
 
     private string _seconds;
 
-    public GameManager gameManager;
+    private int _pedidoCase;
 
     // Start is called before the first frame update
     private void Start()
     {
-        NumeroPedido = Random.Range(1, MaximumRange);
+        NumeroPedido = Random.Range(MinimumRange, MaximumRange);
         _dialogueTXT.text = "Quiero un n�mero <b>" + NumeroPedido + "</b>, por favor";
         _temporizadorTXT = GameObject.FindGameObjectWithTag("temporizador").GetComponent<TMP_Text>();
 
@@ -62,5 +62,21 @@ public class ClientBehaviour : MonoBehaviour
         //{
         //    Random.Range(_minTimerRandomizer / 2.5f, _maxTimerRandomizer / 2.5f);
         //}
+    }
+
+    public void PedidoHecho()
+    {
+        _pedidoCase = Random.Range(1, 2);
+        switch (_pedidoCase)
+        {
+            case 1:
+                _temporizadorTXT.text = "¡Muchas gracias!";
+            break;
+            case 2:
+                _temporizadorTXT.text = "¡Wow, gracias!";
+                break;
+        }
+        GameManager.Instance.points++;
+        Destroy(gameObject, 2f);
     }
 }
