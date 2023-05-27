@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class HandBehaviour : MonoBehaviour
 {
+    public float minX; // Límite izquierdo de la pantalla
+    public float maxX; // Límite derecho de la pantalla
+    public float minY; // Límite inferior de la pantalla
+    public float maxY; // Límite superior de la pantalla
 
-    private Vector3 pos;
-    public float speed = 3f;
-    
-    
-    // Update is called once per frame
     void Update()
     {
-
-        pos = Input.mousePosition;
-        pos.z = speed;
-        //Vector3 cameraPos = Camera.main.ScreenToWorldPoint(pos);
+        Vector3 cursorPosition = Input.mousePosition;
         
-        float x = Input.GetAxis("Mouse X");
-        float y = Input.GetAxis("Mouse Y");
+        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(cursorPosition.x, cursorPosition.y, 10f));
+        
+        targetPosition.z = transform.position.z;
 
-       transform.Translate(new Vector3(x, y ,0));
+        // Limitar la posición del objeto dentro de los límites de la pantalla utilizando Mathf.Clamp
+        targetPosition.x = Mathf.Clamp(targetPosition.x, minX, maxX);
+        targetPosition.y = Mathf.Clamp(targetPosition.y, minY, maxY);
 
-
+        // Asignar la posición del objeto después de aplicar los límites
+        transform.position = targetPosition;
     }
-    
+
 }
