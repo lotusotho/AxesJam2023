@@ -621,12 +621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e21872fbbec72443b656ad1010750b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -4.09
-  maxX: -1.46
-  minY: 0.59
-  maxY: 2.06
-  minZ: 0
-  maxZ: 0
+  minX: -1.41
+  maxX: 1.44
+  minY: -0.8
+  maxY: 0.78
+  minZ: 0.69
+  maxZ: 1.99
 --- !u!4 &329338141
 Transform:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 345708017}
   - component: {fileID: 345708016}
   m_Layer: 0
-  m_Name: Quad (1)
+  m_Name: ParedDerecha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1015,17 +1015,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e9292bcf5450b764f9e949445a1410f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.881
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9292bcf5450b764f9e949445a1410f6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.03
+      value: 1.028
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9292bcf5450b764f9e949445a1410f6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.98
+      value: -6.651
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9292bcf5450b764f9e949445a1410f6,
         type: 3}
@@ -2003,12 +2003,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e21872fbbec72443b656ad1010750b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -4.09
-  maxX: -1.46
-  minY: 0.59
-  maxY: 2.06
-  minZ: 0
-  maxZ: 0
+  minX: -1.41
+  maxX: 1.44
+  minY: -0.8
+  maxY: 0.78
+  minZ: 0.69
+  maxZ: 1.99
 --- !u!1 &992054525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2296,7 @@ GameObject:
   - component: {fileID: 1151646464}
   - component: {fileID: 1151646463}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: ParedIzquerda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2807,12 +2807,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e21872fbbec72443b656ad1010750b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -4.09
-  maxX: -1.46
-  minY: 0.59
-  maxY: 2.06
-  minZ: 0
-  maxZ: 0
+  minX: -1.41
+  maxX: 1.44
+  minY: -0.8
+  maxY: 0.78
+  minZ: 0.69
+  maxZ: 1.99
 --- !u!1 &1437270598
 GameObject:
   m_ObjectHideFlags: 0

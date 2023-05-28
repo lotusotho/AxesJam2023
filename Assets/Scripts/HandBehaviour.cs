@@ -29,7 +29,8 @@ public class HandBehaviour : MonoBehaviour
 
         targetPosition.x = Mathf.Lerp(minX, maxX, normalizedMousePosition_x);
         targetPosition.y = Mathf.Lerp(minY, maxY, normalizedMousePosition_y);
-        targetPosition.z = transform.position.z;
+        targetPosition.z = Mathf.Clamp(transform.localPosition.z, minZ, maxZ);
+        //targetPosition.z = transform.localPosition.z;
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) 
         {
@@ -43,7 +44,7 @@ public class HandBehaviour : MonoBehaviour
         }
 
         // Set the arm's position
-        transform.position = targetPosition;
+        transform.localPosition = targetPosition;
     }
 
 }
