@@ -57,6 +57,11 @@ public class ClientBehaviour : MonoBehaviour
 
         _timer -= Time.deltaTime;
 
+        if (_timer <= 0f)
+        {
+            GameManager.Instance.FinishGame();
+        }
+
 
         //if (_doRandomize && _timer == 150f)
         //{

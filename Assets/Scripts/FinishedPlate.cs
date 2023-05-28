@@ -16,6 +16,7 @@ public class FinishedPlate : MonoBehaviour
             {
                 //El objeto que hay en el plato verde coincide con lo que se necesita, en Game Manager hacemos ajustes para parar temporizador, cambiar cliente, etc.
                 GameManager.Instance.currentClient.PedidoHecho();
+                GameManager.Instance.AddPoints();
                 Destroy(other.gameObject);
             }
         }
