@@ -577,3 +577,4 @@ MonoBehaviour:
   _maxTimerRandomizer: 0
   _minTimerRandomizer: 0
   _doRandomize: 0
+  PedidoRelizado: 0
