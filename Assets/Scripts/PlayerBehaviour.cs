@@ -31,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private int indexCurrentTool = 0;
 
-    private bool isChanging = false, canChange = false;
+    private bool isChanging = false, canChange = true;
     
     [SerializeField]
     private int _toolsChanger;
@@ -214,7 +214,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckChangeTool()
     {
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && canChange)
         {
             isChanging = true;
 
@@ -223,6 +223,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             isChanging = false;
             timerChangeTool = 0f;
+        }
+
+        if (Input.GetButtonUp("Fire2") && !canChange)
+        {
+            canChange = true;
         }
 
         if (isChanging)
@@ -247,8 +252,8 @@ public class PlayerBehaviour : MonoBehaviour
                 
                 _tools[indexCurrentTool].SetActive(true);
                 ChangeActiveTool();
-                
 
+                canChange = false;
                 isChanging = false;
 
             }
