@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6973732004180705865}
   - component: {fileID: 5734058879973575988}
   - component: {fileID: 3639113987716315342}
+  - component: {fileID: 4261502116906084096}
   m_Layer: 6
   m_Name: PatatasFritas
-  m_TagString: Patatafrita
+  m_TagString: Patatasinfreir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,3 +115,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &4261502116906084096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663192635937250332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2229f6e7de1f44e43b29e0a287995571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cocinado: 0
+  Quemado: 0
+  NewPatata: 1
+  StartTimer: 0
+  FoodTimer: 100
