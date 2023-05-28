@@ -44,8 +44,16 @@ public class PlayerBehaviour : MonoBehaviour
     private Transform _changingBar;
 
     public ActiveTool activeTool;
-    
-   
+
+    public Image fillImage;
+
+    private bool isFilling = false;
+    private float currentFillAmount = 0f;
+    private float targetFillAmount = 1f;
+
+    public float fillSpeed = 2f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -217,11 +225,17 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetButton("Fire2") && canChange)
         {
             isChanging = true;
+            isFilling = true;
+            fillImage.gameObject.SetActive(true);
 
         }
         else
         {
             isChanging = false;
+            isFilling = false;
+            currentFillAmount = 0f;
+            fillImage.fillAmount = 0f;
+            fillImage.gameObject.SetActive(false);
             timerChangeTool = 0f;
         }
 
@@ -233,6 +247,19 @@ public class PlayerBehaviour : MonoBehaviour
         if (isChanging)
         {
             timerChangeTool += Time.deltaTime;
+
+            if (isFilling)
+            {
+                currentFillAmount += Time.deltaTime * fillSpeed;
+                currentFillAmount = Mathf.Clamp01(currentFillAmount);
+                fillImage.fillAmount = currentFillAmount;
+
+                if (currentFillAmount >= targetFillAmount)
+                {
+                    isFilling = false;
+                }
+            }
+          
             
             if (timerChangeTool >= requiredChangeToolTime)
             {
@@ -257,6 +284,11 @@ public class PlayerBehaviour : MonoBehaviour
                 isChanging = false;
 
             }
+        }
+
+        if (isFilling)
+        {
+            
         }
     }
 
