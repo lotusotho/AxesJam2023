@@ -39,7 +39,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/AxesJam2023.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\AxesJam2023.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Usuario\Projects\AxesJam2023\Build" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -93,6 +93,7 @@
       <updated>1685123786735</updated>
       <workItem from="1685123789974" duration="9356000" />
       <workItem from="1685171875825" duration="27812000" />
+      <workItem from="1685259809875" duration="287000" />
     </task>
     <servers />
   </component>

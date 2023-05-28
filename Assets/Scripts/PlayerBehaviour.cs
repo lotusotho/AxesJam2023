@@ -2,20 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+
+    public enum ActiveTool
+    {
+        MANO, ESPATULA, CUCHILLO
+    }
+    
     [SerializeField]
     private float _timerCameraChanger, _timerToolChanger, _barTimer;
+    
     [SerializeField]
     private float _setTimer, _setToolChanger;
+
+    [SerializeField] private float timerChangeTool, requiredChangeToolTime;
+    
     [SerializeField]
     [Range(0f, 2f)]
     private float _speed;
     private bool _lerpLeft, _lerpRight, _lerpCenter;
+    
     [SerializeField]
     private GameObject[] _tools;
+
+    private int indexCurrentTool = 0;
+
+    private bool isChanging = false, canChange = false;
+    
     [SerializeField]
     private int _toolsChanger;
     //UI
@@ -26,6 +43,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private Transform _changingBar;
 
+    public ActiveTool activeTool;
+    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +54,7 @@ public class PlayerBehaviour : MonoBehaviour
             _tools[i].SetActive(false);
         }
         _tools[0].SetActive(true);
+        ChangeActiveTool();
         _timerToolChanger = _setToolChanger;
     }
 
@@ -58,22 +79,10 @@ public class PlayerBehaviour : MonoBehaviour
             LerpToCenter();
         }
 
-        //Funciones de lerping
-        void LerpToLeft()
-        {
-            _lerpLeft = true;
-        }
-
-        void LerpToRight()
-        {
-            _lerpRight = true;
-        }
-
-        void LerpToCenter()
-        {
-            _lerpCenter = true;
-        }
-
+        CheckChangeTool();
+        
+       
+        /*
         //Cambiar de herramienta
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -154,7 +163,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         _changingBar.transform.localScale = new Vector3(_barTimer, 1f, 1f);
         _barTimer = Mathf.Clamp(_barTimer, 0f, 1f);
-
+*/
         //Timers
         if (_lerpLeft)
         {
@@ -200,5 +209,81 @@ public class PlayerBehaviour : MonoBehaviour
                 gameObject.transform.localEulerAngles = new Vector3(17.069f, Mathf.LerpAngle(gameObject.transform.localEulerAngles.y, 0f, Time.deltaTime * _speed), 0f);
             }
         }
+    }
+
+    private void CheckChangeTool()
+    {
+
+        if (Input.GetButton("Fire2"))
+        {
+            isChanging = true;
+
+        }
+        else
+        {
+            isChanging = false;
+            timerChangeTool = 0f;
+        }
+
+        if (isChanging)
+        {
+            timerChangeTool += Time.deltaTime;
+            
+            if (timerChangeTool >= requiredChangeToolTime)
+            {
+
+                timerChangeTool = 0f;
+                
+                _tools[indexCurrentTool].SetActive(false);
+
+                if (indexCurrentTool + 1 >= _tools.Length)
+                {
+                    indexCurrentTool = 0;
+                }
+                else
+                {
+                    indexCurrentTool++;
+                }
+                
+                _tools[indexCurrentTool].SetActive(true);
+                ChangeActiveTool();
+                
+
+                isChanging = false;
+
+            }
+        }
+    }
+
+    private void ChangeActiveTool()
+    {
+        switch (indexCurrentTool)
+        {
+            case 0:
+                activeTool = ActiveTool.MANO;
+                break;
+            case 1:
+                activeTool = ActiveTool.ESPATULA;
+                break;
+            case 2:
+                activeTool = ActiveTool.CUCHILLO;
+                break;
+        }
+    }
+
+    //Funciones de lerping
+    void LerpToLeft()
+    {
+        _lerpLeft = true;
+    }
+
+    void LerpToRight()
+    {
+        _lerpRight = true;
+    }
+
+    void LerpToCenter()
+    {
+        _lerpCenter = true;
     }
 }
