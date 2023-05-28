@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public RecipeDatabase RecipeDatabase;
 
+    public PlayerBehaviour PlayerBehaviour;
+
     public List<GameObject> completeRecipes;
 
     [SerializeField]

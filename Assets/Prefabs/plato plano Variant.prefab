@@ -101,17 +101,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a4f48c8a7b859f2438e987406038bcf7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4f48c8a7b859f2438e987406038bcf7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4f48c8a7b859f2438e987406038bcf7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.174
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a4f48c8a7b859f2438e987406038bcf7,
         type: 3}
@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a4f48c8a7b859f2438e987406038bcf7,
         type: 3}
       propertyPath: m_Name
-      value: plato plano
+      value: plato plano Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f48c8a7b859f2438e987406038bcf7, type: 3}
@@ -202,10 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dba72b4c084f347a8589f2cc3056ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishedRecipe: {fileID: 4119828719725499639, guid: c5fe8af495b50974a9293ae16a25cd66,
-    type: 3}
+  finishedPlate: {fileID: 0}
   finishedSpawnLocation: {fileID: 1211624684}
-  triggerIngredients: {fileID: 582074340}
 --- !u!4 &7582484604010294520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a4f48c8a7b859f2438e987406038bcf7,
