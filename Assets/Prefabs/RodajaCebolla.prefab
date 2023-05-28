@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6111328986412054698}
   - component: {fileID: 8310211380560874580}
   - component: {fileID: 7583247218136406164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RodajaCebolla
   m_TagString: Untagged
   m_Icon: {fileID: 0}

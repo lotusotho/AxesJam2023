@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2894365796846524787}
   - component: {fileID: 6267764524149381001}
   - component: {fileID: 6123928812977318040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RodajaTomate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
