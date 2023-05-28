@@ -26,11 +26,12 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI score;
 
-    [SerializeField]
-    private GameObject _nuevocliente;
-
     public Canvas perderCanvas;
 
+    [SerializeField]
+    private GameObject[] clientes;
+
+    private int clientRand;
     private void Awake()
     {
         if (Instance == null)
@@ -54,8 +55,25 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("cliente") == null)
         {
-            currentClient = Instantiate(_nuevocliente).GetComponent<ClientBehaviour>();
-            
+            clientRand = UnityEngine.Random.Range(0, 2);
+            currentClient = Instantiate(clientes[clientRand]).GetComponent<ClientBehaviour>();
+        }
+
+        if (currentClient.PedidoRelizado)
+        {
+            clientRand = UnityEngine.Random.Range(0, 2);
+            currentClient = Instantiate(clientes[clientRand]).GetComponent<ClientBehaviour>();
+            GameObject _destroyclient = GameObject.FindGameObjectWithTag("cliente");
+            Destroy(_destroyclient);
+            currentClient.PedidoRelizado = false;
+        }
+
+        if (GameObject.FindGameObjectsWithTag("cliente").Length > 1)
+        {
+            foreach(GameObject cliente in GameObject.FindGameObjectsWithTag("cliente"))
+            {
+                Destroy(cliente);
+            }
         }
     }
 

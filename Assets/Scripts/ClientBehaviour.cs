@@ -13,7 +13,7 @@ public class ClientBehaviour : MonoBehaviour
     public int NumeroPedido;
 
     private int MinimumRange = 1;
-    private int MaximumRange = 5;
+    private int MaximumRange = 6;
 
     [SerializeField]
     private float _timer;
@@ -32,6 +32,8 @@ public class ClientBehaviour : MonoBehaviour
     private string _seconds;
 
     private int _pedidoCase;
+
+    public bool PedidoRelizado = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -76,12 +78,14 @@ public class ClientBehaviour : MonoBehaviour
         {
             case 1:
                 _temporizadorTXT.text = "¡Muchas gracias!";
-            break;
+                //GameManager.Instance.points++;
+                PedidoRelizado = true;
+                break;
             case 2:
                 _temporizadorTXT.text = "¡Wow, gracias!";
+                //GameManager.Instance.points++;
+                PedidoRelizado = true;
                 break;
         }
-        GameManager.Instance.points++;
-        Destroy(gameObject, 2f);
     }
 }
