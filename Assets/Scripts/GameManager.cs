@@ -38,12 +38,8 @@ public class GameManager : MonoBehaviour
         RecipeDatabase database = new RecipeDatabase();
         
         requiredIngredients = database.recipes[currentClient.NumeroPedido+1];
-        
-        Debug.Log(requiredIngredients.Count);
-        
-        Debug.Log("Asignando " + currentClient.NumeroPedido);
-        
-       cookingPlate.SetRequiredIngredients(requiredIngredients);
+
+        cookingPlate.SetRequiredIngredients(requiredIngredients);
        cookingPlate.SetFinishedRecipe(completeRecipes[currentClient.NumeroPedido+1]);
         
     }
@@ -52,7 +48,8 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("cliente") == null)
         {
-            Instantiate(_nuevocliente);
+            currentClient = Instantiate(_nuevocliente).GetComponent<ClientBehaviour>();
+            
         }
     }
 

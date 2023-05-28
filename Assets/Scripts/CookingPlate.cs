@@ -45,10 +45,12 @@ public class CookingPlate : MonoBehaviour
        
     }
 
+    
     public void SetFinishedRecipe(GameObject finished)
     {
         finishedRecipe = finished;
         finishedPlate.SetRequiredRecipe(finished);
+        
     }
 
     private void CheckIfRecipeIsComplete()
