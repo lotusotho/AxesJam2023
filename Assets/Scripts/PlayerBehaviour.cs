@@ -31,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private int indexCurrentTool = 0;
 
-    private bool isChanging = false, canChange = false;
+    private bool isChanging = false, canChange = true;
     
     [SerializeField]
     private int _toolsChanger;
@@ -44,8 +44,16 @@ public class PlayerBehaviour : MonoBehaviour
     private Transform _changingBar;
 
     public ActiveTool activeTool;
-    
-   
+
+    public Image fillImage;
+
+    private bool isFilling = false;
+    private float currentFillAmount = 0f;
+    private float targetFillAmount = 1f;
+
+    public float fillSpeed = 2f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -214,20 +222,44 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckChangeTool()
     {
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && canChange)
         {
             isChanging = true;
+            isFilling = true;
+            fillImage.gameObject.SetActive(true);
 
         }
         else
         {
             isChanging = false;
+            isFilling = false;
+            currentFillAmount = 0f;
+            fillImage.fillAmount = 0f;
+            fillImage.gameObject.SetActive(false);
             timerChangeTool = 0f;
+        }
+
+        if (Input.GetButtonUp("Fire2") && !canChange)
+        {
+            canChange = true;
         }
 
         if (isChanging)
         {
             timerChangeTool += Time.deltaTime;
+
+            if (isFilling)
+            {
+                currentFillAmount += Time.deltaTime * fillSpeed;
+                currentFillAmount = Mathf.Clamp01(currentFillAmount);
+                fillImage.fillAmount = currentFillAmount;
+
+                if (currentFillAmount >= targetFillAmount)
+                {
+                    isFilling = false;
+                }
+            }
+          
             
             if (timerChangeTool >= requiredChangeToolTime)
             {
@@ -247,11 +279,16 @@ public class PlayerBehaviour : MonoBehaviour
                 
                 _tools[indexCurrentTool].SetActive(true);
                 ChangeActiveTool();
-                
 
+                canChange = false;
                 isChanging = false;
 
             }
+        }
+
+        if (isFilling)
+        {
+            
         }
     }
 
