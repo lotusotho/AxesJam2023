@@ -65,12 +65,17 @@ public class CookingPlate : MonoBehaviour
                 foreach (GameObject food in currentIngredientsObj)
                 {
                     Destroy(food);
-                   
+
                 }
                 
                 GameObject finishedFood = Instantiate(finishedRecipe);
                 finishedFood.transform.position = finishedSpawnLocation.position;
                 currentIngredients.Clear();
+                
+                if (GameManager.Instance.PlayerBehaviour.itemOnHand)
+                {
+                    GameManager.Instance.PlayerBehaviour.itemOnHand = false;
+                }
                 
             }
             

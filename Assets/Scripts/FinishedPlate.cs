@@ -18,6 +18,11 @@ public class FinishedPlate : MonoBehaviour
                 GameManager.Instance.currentClient.PedidoHecho();
                 GameManager.Instance.AddPoints();
                 Destroy(other.gameObject);
+
+                if (GameManager.Instance.PlayerBehaviour.itemOnHand)
+                {
+                    GameManager.Instance.PlayerBehaviour.itemOnHand = false;
+                }
             }
         }
     }
