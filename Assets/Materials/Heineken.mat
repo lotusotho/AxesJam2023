@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_CelShading
+  m_Name: Heineken
   m_Shader: {fileID: -6465566751694194690, guid: 883604c809c92b141ab2fb73ce55011d,
     type: 3}
   m_ValidKeywords: []
@@ -26,7 +26,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 28e6f4f4282bede4f972436e60e2c3ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: c7ef560056487ed43a0e2d0e6e2d3874, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -47,14 +47,14 @@ Material:
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
-    - _FresnelPower: 0.82
+    - _FresnelPower: 0.31
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 0.8679245, g: 0.6772408, b: 0.4208615, a: 1}
-    - _Darkcolor: {r: 0.5754717, g: 0.02388748, b: 0.02388748, a: 1}
+    - _Darkcolor: {r: 0, g: 0, b: 0, a: 1}
     - _Direction: {r: 0, g: 0, b: 0, a: 0}
-    - _Litcolor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
+    - _Litcolor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5374144847301414011
 MonoBehaviour:
