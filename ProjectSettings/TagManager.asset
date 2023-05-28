@@ -10,6 +10,12 @@ TagManager:
   - temporizador
   - FoodNumber1
   - cliente
+  - Lechuga
+  - Cebolla
+  - Patatacruda
+  - Queso
+  - Tomate
+  - Patatafrita
   layers:
   - Default
   - TransparentFX

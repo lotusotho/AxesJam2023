@@ -25,17 +25,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fb18d2627315f4b47819635be76039ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.338
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb18d2627315f4b47819635be76039ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.057
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb18d2627315f4b47819635be76039ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.243
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb18d2627315f4b47819635be76039ca,
         type: 3}
@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fb18d2627315f4b47819635be76039ca,
         type: 3}
       propertyPath: m_Name
-      value: Pan de abajo
+      value: Pan de abajo Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fb18d2627315f4b47819635be76039ca,
         type: 3}

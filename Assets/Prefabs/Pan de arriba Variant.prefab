@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 538d6fafadd49764f99c10050ab1ff08,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.801
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 538d6fafadd49764f99c10050ab1ff08,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.049
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 538d6fafadd49764f99c10050ab1ff08,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.191
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 538d6fafadd49764f99c10050ab1ff08,
         type: 3}
@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 538d6fafadd49764f99c10050ab1ff08,
         type: 3}
       propertyPath: m_Name
-      value: Pan de arriba
+      value: Pan de arriba Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 538d6fafadd49764f99c10050ab1ff08,
         type: 3}
