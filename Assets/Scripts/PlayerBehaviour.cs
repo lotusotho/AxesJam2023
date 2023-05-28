@@ -53,6 +53,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public float fillSpeed = 2f;
 
+    public bool itemOnHand = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -222,7 +224,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckChangeTool()
     {
 
-        if (Input.GetButton("Fire2") && canChange)
+        if (Input.GetButton("Fire2") && canChange && !itemOnHand)
         {
             isChanging = true;
             isFilling = true;

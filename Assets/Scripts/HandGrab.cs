@@ -35,7 +35,16 @@ public class HandGrab : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Grabbable") || collision.gameObject.layer == LayerMask.NameToLayer("GrababbleFinished"))
         {
-            lastSelectedItem = collision.gameObject;
+            if(collision.gameObject.GetComponent<CarneValues>() != null && GameManager.Instance.PlayerBehaviour.activeTool == PlayerBehaviour.ActiveTool.ESPATULA)
+            {
+                lastSelectedItem = collision.gameObject;
+              
+            } else if(GameManager.Instance.PlayerBehaviour.activeTool == PlayerBehaviour.ActiveTool.MANO)
+            {
+                lastSelectedItem = collision.gameObject;
+              
+            }
+           
         }
     }
 
@@ -58,6 +67,7 @@ public class HandGrab : MonoBehaviour
                 
                 collider.isTrigger = false;
                 isDropping = false;
+                
             }
         }
         
@@ -74,6 +84,7 @@ public class HandGrab : MonoBehaviour
             //Cogemos el objeto
             if (currentGrabbedItem == null)
             {
+                GameManager.Instance.PlayerBehaviour.itemOnHand = true;
                 Debug.Log("Cogemos");
                 lastSelectedItem.transform.position = grabPosition.position;
                 lastSelectedItem.transform.SetParent(grabPosition, true);
@@ -85,6 +96,7 @@ public class HandGrab : MonoBehaviour
             else
             {
                 Debug.Log("Dropeamos");
+                GameManager.Instance.PlayerBehaviour.itemOnHand = false;
                 currentGrabbedItem.GetComponent<Rigidbody>().isKinematic = false;
                 collider.isTrigger = true;
                 currentGrabbedItem.transform.parent = null;
