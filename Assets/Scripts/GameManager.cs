@@ -55,4 +55,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddPoints()
+    {
+        
+    }
+
 }
