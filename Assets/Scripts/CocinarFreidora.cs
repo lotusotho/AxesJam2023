@@ -67,10 +67,6 @@ public class CocinarFreidora : MonoBehaviour
             other.gameObject.GetComponent<PatataValues>().StartTimer = true;
         }
         
-        if (other.gameObject.GetComponent<PatataValues>() == null && other.gameObject.layer == LayerMask.NameToLayer("Grabbable") || other.gameObject.GetComponent<PatataValues>() == null && other.gameObject.layer == LayerMask.NameToLayer("GrabbableFinished"))
-        {
-            Destroy(other.gameObject);
-        }
 
         /*
         if (other.gameObject.tag == "patata")

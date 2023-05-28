@@ -96,7 +96,6 @@ public class HandGrab : MonoBehaviour
             else
             {
                 Debug.Log("Dropeamos");
-                GameManager.Instance.PlayerBehaviour.itemOnHand = false;
                 currentGrabbedItem.GetComponent<Rigidbody>().isKinematic = false;
                 collider.isTrigger = true;
                 currentGrabbedItem.transform.parent = null;

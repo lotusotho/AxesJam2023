@@ -21,6 +21,11 @@ TagManager:
   - Patatasinfreir
   - Patatasquemadas
   - Patatasfritas
+  - FoodNumber2
+  - FoodNumber3
+  - FoodNumber4
+  - FoodNumber5
+  - FoodNumber6
   layers:
   - Default
   - TransparentFX

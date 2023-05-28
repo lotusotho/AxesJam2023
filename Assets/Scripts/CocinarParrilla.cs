@@ -67,11 +67,6 @@ public class CocinarParrilla : MonoBehaviour
             other.gameObject.GetComponent<CarneValues>().StartTimer = true;
         }
         
-        if (other.gameObject.GetComponent<CarneValues>() == null && other.gameObject.layer == LayerMask.NameToLayer("Grabbable") || other.gameObject.GetComponent<CarneValues>() == null && other.gameObject.layer == LayerMask.NameToLayer("GrabbableFinished"))
-        {
-            Destroy(other.gameObject);
-        }
-
         /*
         if (other.gameObject.tag == "Carne")
         {

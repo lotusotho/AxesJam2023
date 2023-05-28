@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
     {
         RecipeDatabase database = new RecipeDatabase();
         
-        requiredIngredients = database.recipes[currentClient.NumeroPedido+1];
+        requiredIngredients = database.recipes[currentClient.NumeroPedido];
         cookingPlate.SetRequiredIngredients(requiredIngredients);
-        cookingPlate.SetFinishedRecipe(completeRecipes[currentClient.NumeroPedido+1]);
+        cookingPlate.SetFinishedRecipe(completeRecipes[currentClient.NumeroPedido-1]);
         score.text = "0";
 
     }
